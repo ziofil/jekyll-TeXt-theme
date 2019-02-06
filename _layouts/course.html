@@ -1,0 +1,36 @@
+---
+layout: page_with_menu
+show_title: false
+aside: false
+---
+
+<h1>{{page.code}}</h1>
+{% if page.announcements %}
+<div>
+<h2>Announcements </h2>
+    {% for ann in page.announcements %}
+    <p class="info">{{site.time | date: "(%-d %B %Y)"}} -- {{ ann }}</p>
+    {% endfor %}
+</div>
+{% endif %}  
+
+<h2>Description</h2>
+<p>{{page.description}}</p>
+
+<h2>Course Goals</h2>
+<ol> 
+    {% for goal in page.course_goals %}
+    <li> {{ goal | capitalize }}</li>
+    {% endfor %}
+</ol>
+
+<h2>Instructors</h2>
+{% include course-instructors.html instructors = page.instructors%}
+
+  
+
+
+
+
+
+  {{ page.content }}

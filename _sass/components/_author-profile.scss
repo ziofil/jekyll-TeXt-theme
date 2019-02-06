@@ -10,8 +10,10 @@
 }
 .author-profile__avatar {
   width: 5rem;
-  margin-top: map-get($spacers, 2);
+  // height: 5rem;
   border-radius: 50%;
+  margin-top: map-get($spacers, 2);
+  // margin-right: map-get($spacers, 3);
 }
 .author-profile__name {
   font-size: map-get($base, font-size-lg);

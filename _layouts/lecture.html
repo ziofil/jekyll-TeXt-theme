@@ -1,0 +1,19 @@
+---
+layout: page_with_menu
+license: true
+show_author_profile: true
+aside:
+  toc: true
+---
+
+<h2>Learning objectives:</h2>
+{% for objectives in page.learning_objectives %}
+<ul>
+<li>{{objectives | capitalize}}</li>
+</ul>
+{% endfor %}
+
+<!--  -->
+
+
+{{content}}

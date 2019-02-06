@@ -14,8 +14,8 @@ en: &EN
   STATISTICS              : "[POST_COUNT] post articles, [PAGE_COUNT] pages."
   LICENSE_ANNOUNCE        : "This work is licensed under a [LICENSE] license."
   POST_ON_GITHUB          : "Edit on Github"
-  FOLLOW_ME               : "Follow me on [NAME]."
-  EMAIL_ME                : "Send me Email."
+  FOLLOW_ME               : "Follow me on [NAME]"
+  EMAIL_ME                : "Send me an Email"
   COPYRIGHT_DATES         : "2019"
 
 en-GB:

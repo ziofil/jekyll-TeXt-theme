@@ -1,0 +1,25 @@
+---
+layout: page
+---
+
+{% assign courses = site.courses | where: 'layout', 'course' %}
+{% for course in courses  %}
+    
+
+    <h1><a href="courses/{{ course.code }}/{{ course.code }}.html">{{ course.code }}</a></h1>
+    {{course.short_description}}
+
+    <!-- write instructors names with link if it is group member -->
+    {% include course-instructors.html instructors = course.instructors%}
+    
+    {% if course.course_goals%}
+    <h3>Course Goals</h3>
+    <ol> 
+        {% for goal in course.course_goals %}
+        <li> {{ goal | capitalize}}</li>
+        {% endfor %}
+    </ol>
+
+
+    {% endif %}
+{% endfor %}

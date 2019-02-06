@@ -1,0 +1,15 @@
+<ul> 
+    {% for instructor in include.instructors %}
+        {% for member in site.members %} 
+            {% if member.name == instructor%}
+            {% assign url=member.url%}
+            {% endif%}
+        {% endfor %}
+        {%if url%}
+            <li><a href="{{ url }}"> {{ instructor }}</a></li>
+            {% assign url=null%}
+        {% else %}
+        <li>{{ instructor }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>

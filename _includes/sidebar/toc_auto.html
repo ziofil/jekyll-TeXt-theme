@@ -1,0 +1,43 @@
+{% assign lectures = site.courses | where: "layout", "lecture" | where: "code", include.code %}
+{% assign course = site.courses | where: "layout", "course" | where: "code", include.code | first %}
+
+
+{% capture _submenus %}
+{% for lecture in lectures %}
+{% assign url_parts = lecture.url | split: "/" %}
+{{url_parts[3]}}
+{% endfor %}
+{% endcapture %}
+
+{% assign submenus = _submenus | join: ' ' | split: ' ' | uniq %}
+
+<!--  -->
+<!--  -->
+<div class="sidebar-toc">
+<ul class="toc toc--navigator">
+    <li class="toc-h1"><a>{{ page.code }}</a></li>
+    {%- if course.url == page.url -%}
+    <li class="toc-h2 active"><a href="{{ course.url }}">Course homepage</a></li>
+    {%- else -%}
+    <li class="toc-h2"><a href="{{ course.url }}">Course homepage</a></li>
+    {%- endif -%}
+    
+
+    {% for menu in submenus %}
+    <li class="toc-h1"><a>{{ menu }}</a></li>
+      {%for file in lectures%}
+        {% assign url_parts = file.url | split: "/" %}
+        {% for part in url_parts %}
+          {% if part == menu %}
+            {%- if file.url == page.url -%}
+            <li class="toc-h2 active"><a href="{{ file.url }}">{{ file.menu_title }}</a></li>
+            {%- else -%}
+            <li class="toc-h2"><a href="{{ file.url }}">{{ file.menu_title }}</a></li>
+            {%- endif -%}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+</ul>
+</div>
